@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0e0a0b;
+  --ink-soft: #2b2224;
+  --cream: #f6eee6;
+  --cream-high: #fcf8f3;
+  --cream-dim: #e9dccf;
+  --rose: #c58a96;
+  --rose-deep: #8f4f60;
+  --rose-pale: #ecc9c0;
+  --gold: #b8935a;
+  --gold-bright: #dcb97e;
+  --line: rgba(14, 10, 11, 0.12);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-cream: var(--cream);
+  --color-cream-high: var(--cream-high);
+  --color-cream-dim: var(--cream-dim);
+  --color-rose: var(--rose);
+  --color-rose-deep: var(--rose-deep);
+  --color-rose-pale: var(--rose-pale);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-manrope);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--ink);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--rose);
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Rose-gold metallic type */
+.text-rosegold {
+  display: inline-block;
+  padding: 0 0.06em 0.12em 0;
+  background: linear-gradient(
+    100deg,
+    #f6d9cc 0%,
+    #dba593 30%,
+    #b8798a 58%,
+    #f1c9b8 85%,
+    #d9a08f 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shimmer 7s ease-in-out infinite alternate;
+}
+
+.bg-rosegold {
+  background: linear-gradient(
+    110deg,
+    #f3d2c4 0%,
+    #d99f8e 45%,
+    #bd7f8e 100%
+  );
+}
+
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+  opacity: 0.6;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.6) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(45deg);
+  }
+}
+.twinkle {
+  animation: twinkle 3.2s ease-in-out infinite;
+}
